@@ -13,7 +13,7 @@ import React, { Component } from 'react';
 // class javascript
 // you can put method
 class SearchBar extends Component {
-
+    // inisialisasi state
     constructor(props) {
         super(props);
 
@@ -21,15 +21,31 @@ class SearchBar extends Component {
     }
     // syntax for finding method on a class
     render() {
+        // 2
+        // atau tanpa create handler baru
+        // return <input onChange={event => console.log(event.target.value)} />;
+
+        //  3
+        // set state untuk digunakan di this.state
+        return (
+            <div>
+                <input
+                    value = {this.state.term}
+                    onChange={event => this.setState({ term: event.target.value })} 
+                 />
+                
+            </div>
+        );
+        // 1
         // use metheod on change
-       return <input onChange = { this.onInputChange }/>;
+    //    return <input onChange = { this.onInputChange }/>;
     }
 
     // create event handler
-    onInputChange(event) {
-        // get value
-        console.log(event.target.value)
-    }
+    // onInputChange(event) {
+    //     // get value
+    //     console.log(event.target.value)
+    // }
 }
 
 export default SearchBar;

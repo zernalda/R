@@ -4,9 +4,16 @@ import ReactDOM from 'react-dom';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoListItem from './components/video_list_item';
+import YTSearch from 'youtube-api-search';
 
 //import API Key
 const API_KEY = 'AIzaSyBkoBm6ycFrKTPgknrm8xcr1BRdjoja0lU';
+
+YTSearch({key: API_KEY, term: 'surfboards'}, function(data){
+    console.log(data);
+});
+
+
 // buat component baru
 // this componnent should be produce in html
 
