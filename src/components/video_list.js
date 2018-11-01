@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class VideoList extends Component{
+// the props object is the argument
+const VideoList = (props) => {
 
-    constructor(props) {
-        super(props);
-
-        this.state = { term: '' };
-    }
-
-    render() {
-        // use metheod on change
-       return <ul>
-           test
-       </ul>;
-    }
-    
-}
+    return (
+        <ul className="col-md-4 list-group">
+            { props.videos.length }
+        </ul>
+    ); 
+};
 
 export default VideoList;
