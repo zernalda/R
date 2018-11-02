@@ -26,7 +26,8 @@ class App extends Component{
         // videos = list dari video
         this.state = { videos: [] };
 
-        YTSearch( {key: API_KEY, term: 'surfboards'}, (videos) => {
+        // term is what you need to search top 5 in youtube
+        YTSearch( {key: API_KEY, term: 'WWE'}, (videos) => {
             // callback function
             this.setState( { videos } );
         } );

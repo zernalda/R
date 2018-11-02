@@ -1,18 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class videoListItem extends Component{
+// ({video}) 'dama dengan' const video = props.video;
+const videoListItem = ({video}) => {
+    // console.log(video);
 
-    constructor(props) {
-        super(props);
+    // define value of video
+    // xhr-preview-items-snippet
+    const imageUrl = video.snippet.thumbnails.default.url;
+    const videoTitle = video.snippet.title;
 
-        this.state = { term: '' };
-    }
+    // kita akan mengeluarkan seluruh isi dalam object video
+    return (
+        <li className="list-group-item">
+            <div className="video-list media">
+                <div className="media-left">
+                    <img className="media-object" src={imageUrl}/>
+                </div>
 
-    render() {
-        // use metheod on change
-       return <li>list ini</li>;
-    }
-
+                <div className="media-body">
+                    <div className="media-heading">{videoTitle}</div>
+                </div>
+            </div>
+        </li>
+    );
 }
 
 export default videoListItem;
