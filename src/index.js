@@ -25,21 +25,32 @@ class App extends Component{
         super(props);
         // property dari state 'videos'
         // videos = list dari video
-        this.state = { videos: [] };
+        this.state = { 
+            videos: [],
+            // start video
+            selectedVideo : null
+         };
 
         // term is what you need to search top 5 in youtube
-        YTSearch( {key: API_KEY, term: 'WWE'}, (videos) => {
+        YTSearch( {key: API_KEY, term: 'champions league'}, (videos) => {
             // callback function
-            this.setState( { videos } );
+            this.setState( { 
+                videos: videos,
+                 selectedVideo: videos[0]
+            } );
         } );
     }
 
+        
     render() {
         return (
             <div>
                 <SearchBar />
-                <VideoDetail video={this.state.videos[0]} />
-                <VideoList videos={this.state.videos}/>
+                <VideoDetail video={this.state.selectedVideo} />
+                <VideoList 
+                    onVideoSelect= { selectedVideo => this.setState({selectedVideo}) }
+                    videos= {this.state.videos}
+                />
             </div>
         );
     }

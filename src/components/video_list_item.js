@@ -1,9 +1,10 @@
 import React from 'react';
 
 // ({video}) 'dama dengan' const video = props.video;
-const videoListItem = ({video}) => {
+// post property into object
+const VideoListItem = ({video, onVideoSelect}) => {
     // console.log(video);
-
+    
     // define value of video
     // xhr-preview-items-snippet
     const imageUrl = video.snippet.thumbnails.default.url;
@@ -11,7 +12,7 @@ const videoListItem = ({video}) => {
 
     // kita akan mengeluarkan seluruh isi dalam object video
     return (
-        <li className="list-group-item">
+        <li onClick = { ()=>onVideoSelect(video) } className="list-group-item">
             <div className="video-list media">
                 <div className="media-left">
                     <img className="media-object" src={imageUrl}/>
@@ -23,6 +24,6 @@ const videoListItem = ({video}) => {
             </div>
         </li>
     );
-}
+};
 
-export default videoListItem;
+export default VideoListItem;
